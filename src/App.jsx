@@ -22,7 +22,13 @@ function App() {
 
   const completeToDo = (index) => {
     const newTodos = [...todos];
-    newTodos[index].isComplete = true;
+    newTodos[index].isComplete == !newTodos[index].isComplete;
+    setTodos(newTodos);
+  }
+
+  const incompleteToDo = (index) => {
+    const newTodos = [...todos];
+    newTodos[index].isComplete = false;
     setTodos(newTodos);
   }
 
@@ -42,6 +48,7 @@ function App() {
             todo={todo}
             index={index}
             completeToDo={completeToDo}
+            incompleteToDo={incompleteToDo}
             removeToDo={removeToDo} />
         ))}
         <ToDoForm addTodo={addTodo} />
